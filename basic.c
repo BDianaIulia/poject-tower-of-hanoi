@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-
-void createStack( int no_of_stories )
+void createStack( struct plate* stack, int no_of_stories )
 {
-    struct plate* stack = ( struct plate* ) malloc( sizeof( struct Stack ));
+    stack = ( struct plate* ) malloc( sizeof( struct Stack ));
     stack -> top = -1;
     stack -> array = (int*) malloc( no_of_stories * sizeof(int));
 }
@@ -31,7 +31,7 @@ int pop( struct plate* stack )
     return stack -> array[stack -> top--];
 }
 
-void print_the_move( char silver_plane, char golden_plane, int floor )
+void print_the_move( char silver_plate, char golden_plate, int floor )
 {
-    printf( "Move the disk %d from %c to %c\n", floor, silver_plane, golden_plane );
+    printf( "Move floor %d from %c to %c\n", floor, silver_plate, golden_plate );
 }
