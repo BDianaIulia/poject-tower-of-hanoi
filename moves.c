@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "basic.h"
 
 void move_from_plate( struct plate *from_plate, struct plate *to_plate , char silver_plate, char golden_plate )
@@ -30,4 +31,34 @@ void move_from_plate( struct plate *from_plate, struct plate *to_plate , char si
                 push( to_plate, top_first_plate );
                 print_the_move( silver_plane, golden_plate, top_first_plate );
             }
+}
+
+
+void tower_of_Hanoi( int no_of_disks, struct plate *from_plate, struct plate *aux_plate, struct plate *to_plate )
+{
+    int iterator;
+    int total_no_of_moves;
+    char silver_plate = 'S';
+    char golden_plate = 'G';
+    char bronze_plate = 'B';
+
+    // la 3 gogosi => 7 mutari ; la 4 gogosi => 15 mutari
+    total_no_of_moves = pow( 2 , no_of_disks ) - 1;
+
+    for( iterator = 1; iterator <= total_no_of_moves /*7 mutari pt 3 gogosi*/; iterator++)
+    {
+        if( iterator % 3 == 1 ){  //prima data se muta prima gogoasa de pe prima farfurie pe ultima
+                                    //a 4-a oara se muta gogoasa 3 de pe prima farfurie pe ultima
+                                    //a 7-a oara se muta gogoasa 1 de pe prima farfurie pe ultima
+            move_from_plate( from_plate, to_plate, silver_plate, golden_plate );
+        }
+        else if( iterator % 3 == 2 ){  //a doua oara se muta  a doua gogoasa de pe prima farfurie pe a doua
+                                        //a 5-a oara se muta gogoasa 1 de pe a 2-a farfurie pe prima
+                move_from_plate( from_plate, aux_plate, silver_plate, bronze_plate );
+            }
+            else if( iterator % 3 == 0 ){  //a treia oara se muta prima gogoasa de pe ultima farfurie pe a doua
+                                            //a 6-a oara de muta gogoasa 2 de pe a 2-a farfurie pe ultima
+                    move_from_plate( aux_plate, to_plate, bronze_plate, golden_plate );
+                }
+    }
 }

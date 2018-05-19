@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdio.h>
 
-void createStack( struct plate* stack, int no_of_stories )
+void create_stack( struct plate* stack, int no_of_stories )
 {
-    stack = ( struct plate* ) malloc( sizeof( struct Stack ));
+    stack = ( struct plate* ) malloc( sizeof( struct plate ));
     stack -> top = -1;
-    stack -> array = (int*) malloc( no_of_stories * sizeof(int));
+    stack -> array = ( int* ) malloc( no_of_stories * sizeof( int ));
 }
 
-void push( struct plate *stack, int no_of_stories, int new_story )
+void push( struct plate* stack, int no_of_stories, int new_story )
 {
     if( stack -> top == no_of_stories - 1 )
     {
