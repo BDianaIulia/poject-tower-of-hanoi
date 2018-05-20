@@ -1,21 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void create_stack( struct plate* stack, int no_of_stories )
+#include "struct.h"
+
+struct plate * create_stack( struct plate* stack, int no_of_stories )
 {
     stack = ( struct plate* ) malloc( sizeof( struct plate ));
     stack -> top = -1;
     stack -> array = ( int* ) malloc( no_of_stories * sizeof( int ));
+
+    return stack;
 }
 
-void push( struct plate* stack, int no_of_stories, int new_story )
+void push( struct plate* stack, int new_story )
 {
-    if( stack -> top == no_of_stories - 1 )
-    {
-        printf( "The plate is full\n" );
-        return;
-    }
-
     stack -> top++;
     stack -> array[ stack -> top ] = new_story;
 }
@@ -28,6 +26,15 @@ int pop( struct plate* stack )
     }
 
     return stack -> array[stack -> top--];
+}
+
+void fill_array( struct plate * stack , int no_of_stories )
+{
+    int iterator;
+    for( iterator = no_of_stories ; iterator >= 1 ; iterator-- )
+    {
+        push( stack, iterator );
+    }
 }
 
 void print_the_move( char silver_plate, char golden_plate, int floor )

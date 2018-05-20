@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
 #include "basic.h"
+#include "struct.h"
 
 void move_from_plate( struct plate *from_plate, struct plate *to_plate , char silver_plate, char golden_plate )
 {
@@ -23,13 +25,13 @@ void move_from_plate( struct plate *from_plate, struct plate *to_plate , char si
             {
                 push( from_plate, top_first_plate );
                 push( from_plate, top_second_plate );
-                print_the_move( golden_plate_plane, silver_plate, top_second_plate );
+                print_the_move( golden_plate, silver_plate, top_second_plate );
             }
             else
             {
                 push( to_plate, top_second_plate );
                 push( to_plate, top_first_plate );
-                print_the_move( silver_plane, golden_plate, top_first_plate );
+                print_the_move( silver_plate, golden_plate, top_first_plate );
             }
 }
 
