@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "struct.h"
 
-struct plate * create_stack( struct plate* stack, int no_of_stories )
+extern int no_of_stories;
+
+struct plate * create_stack( struct plate* stack , char kind_of_plate[] )
 {
     stack = ( struct plate* ) malloc( sizeof( struct plate ));
     stack -> top = -1;
     stack -> array = ( int* ) malloc( no_of_stories * sizeof( int ));
+    strcpy( stack -> name, kind_of_plate );
 
     return stack;
 }
@@ -28,7 +32,7 @@ int pop( struct plate* stack )
     return stack -> array[stack -> top--];
 }
 
-void fill_array( struct plate * stack , int no_of_stories )
+void fill_array( struct plate * stack )
 {
     int iterator;
     for( iterator = no_of_stories ; iterator >= 1 ; iterator-- )
@@ -37,7 +41,7 @@ void fill_array( struct plate * stack , int no_of_stories )
     }
 }
 
-void print_the_move( char silver_plate, char golden_plate, int floor )
+void print_the_move( char from_plate[], char to_plate[], int floor )
 {
-    printf( "Move floor %d from %c to %c\n", floor, silver_plate, golden_plate );
+    printf( "Move floor %d from %s to %s\n", floor, from_plate, to_plate );
 }

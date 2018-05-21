@@ -8,17 +8,13 @@ int no_of_stories = 3;
 
 int main()
 {
-    struct plate * golden_plate;
-    struct plate * silver_plate;
-    struct plate * bronze_plate;
+    struct plate * golden_plate = create_stack( golden_plate , "golden plate" );
+    struct plate * silver_plate = create_stack( silver_plate , "silver plate" );
+    struct plate * bronze_plate = create_stack( bronze_plate , "bronze plate" );
 
-    golden_plate = create_stack( golden_plate , no_of_stories );
-    silver_plate = create_stack( silver_plate , no_of_stories );
-    bronze_plate = create_stack( bronze_plate , no_of_stories );
+    fill_array( silver_plate );
 
-    fill_array( silver_plate, no_of_stories );
-
-    tower_of_Hanoi( no_of_stories, silver_plate, bronze_plate, golden_plate );
+    tower_of_Hanoi( silver_plate, bronze_plate, golden_plate );
 
     return 0;
 }
