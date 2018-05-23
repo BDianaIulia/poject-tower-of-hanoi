@@ -40,29 +40,37 @@ void move_from_plate( struct plate *from_plate, struct plate *to_plate )
 
 void tower_of_Hanoi( struct plate *from_plate, struct plate *aux_plate, struct plate *to_plate )
 {
-    int iterator;
-    int total_no_of_moves;
-    char silver_plate = 'S';
-    char golden_plate = 'G';
-    char bronze_plate = 'B';
+    long iterator;
+    long total_no_of_moves;
 
-    // la 3 gogosi => 7 mutari ; la 4 gogosi => 15 mutari
     total_no_of_moves = pow( 2 , no_of_stories ) - 1;
 
-    for( iterator = 1; iterator <= total_no_of_moves /*7 mutari pt 3 gogosi*/; iterator++)
+    for( iterator = 1; iterator <= total_no_of_moves; iterator++)
     {
-        if( iterator % 3 == 1 ){  //prima data se muta prima gogoasa de pe prima farfurie pe ultima
-                                    //a 4-a oara se muta gogoasa 3 de pe prima farfurie pe ultima
-                                    //a 7-a oara se muta gogoasa 1 de pe prima farfurie pe ultima
-            move_from_plate( from_plate, to_plate );
-        }
-        else if( iterator % 3 == 2 ){  //a doua oara se muta  a doua gogoasa de pe prima farfurie pe a doua
-                                        //a 5-a oara se muta gogoasa 1 de pe a 2-a farfurie pe prima
-                move_from_plate( from_plate, aux_plate );
-            }
-            else if( iterator % 3 == 0 ){  //a treia oara se muta prima gogoasa de pe ultima farfurie pe a doua
-                                            //a 6-a oara de muta gogoasa 2 de pe a 2-a farfurie pe ultima
-                    move_from_plate( aux_plate, to_plate );
+
+        switch( iterator % 3 )
+        {
+            case( 1 ):{
+                if( no_of_stories % 2 == 1 ){
+                    move_from_plate( from_plate, to_plate );
+                }else{
+                    move_from_plate( from_plate, aux_plate );
                 }
+                break;
+            }
+            case( 2 ):{
+                if( no_of_stories % 2 == 1 ){
+                    move_from_plate( from_plate, aux_plate );
+                }else{
+                    move_from_plate( from_plate, to_plate );
+                }
+                break;
+            }
+            case( 0 ):{
+                move_from_plate( aux_plate, to_plate );
+                break;
+            }
+        }
+
     }
 }

@@ -4,7 +4,7 @@
 #include "basic.h"
 #include "struct.h"
 
-int no_of_stories = 3;
+int no_of_stories = 20;
 
 int main()
 {
