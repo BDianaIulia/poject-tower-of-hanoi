@@ -4,8 +4,6 @@
 #include "basic.h"
 #include "struct.h"
 
-int no_of_stories = 20;
-
 int main()
 {
     struct plate * golden_plate = create_stack( golden_plate , "golden plate" );

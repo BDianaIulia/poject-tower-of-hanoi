@@ -3,11 +3,11 @@
 #include <string.h>
 
 #include "struct.h"
-
-extern int no_of_stories;
+#include "input.h"
 
 struct plate * create_stack( struct plate* stack , char kind_of_plate[] )
 {
+    int no_of_stories = input();
     stack = ( struct plate* ) malloc( sizeof( struct plate ));
     stack -> top = -1;
     stack -> array = ( int* ) malloc( no_of_stories * sizeof( int ));
@@ -35,6 +35,7 @@ int pop( struct plate* stack )
 void fill_array( struct plate * stack )
 {
     int iterator;
+    int no_of_stories = input();
     for( iterator = no_of_stories ; iterator >= 1 ; iterator-- )
     {
         push( stack, iterator );

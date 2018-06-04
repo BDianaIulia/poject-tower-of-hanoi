@@ -4,8 +4,7 @@
 
 #include "basic.h"
 #include "struct.h"
-
-extern int no_of_stories;
+#include "input.h"
 
 void move_from_plate( struct plate *from_plate, struct plate *to_plate )
 {
@@ -42,8 +41,9 @@ void tower_of_Hanoi( struct plate *from_plate, struct plate *aux_plate, struct p
 {
     long iterator;
     long total_no_of_moves;
+    int no_of_stories = input();
 
-    total_no_of_moves = pow( 2 , no_of_stories ) - 1;
+    total_no_of_moves = (long) pow( 2 , no_of_stories ) - 1;
 
     for( iterator = 1; iterator <= total_no_of_moves; iterator++)
     {
