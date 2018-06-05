@@ -1,0 +1,69 @@
+\section{C\+:/\+Users/\+John/\+Desktop/gh/poject-\/tower-\/of-\/hanoi/moves.h File Reference}
+\label{moves_8h}\index{C\+:/\+Users/\+John/\+Desktop/gh/poject-\/tower-\/of-\/hanoi/moves.\+h@{C\+:/\+Users/\+John/\+Desktop/gh/poject-\/tower-\/of-\/hanoi/moves.\+h}}
+
+
+C header for generating the movements.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ move\+\_\+from\+\_\+plate} (struct \textbf{ plate} $\ast$from\+\_\+plate, struct \textbf{ plate} $\ast$to\+\_\+plate)
+\begin{DoxyCompactList}\small\item\em choosing the legal movement. \end{DoxyCompactList}\item 
+void \textbf{ tower\+\_\+of\+\_\+\+Hanoi} (struct \textbf{ plate} $\ast$from\+\_\+plate, struct \textbf{ plate} $\ast$aux\+\_\+plate, struct \textbf{ plate} $\ast$to\+\_\+plate)
+\begin{DoxyCompactList}\small\item\em implements the movement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C header for generating the movements. 
+
+\begin{DoxyAuthor}{Author}
+Diana Bleoanca. Implements the functions that choose the legal movement and the main algorithm for all moves. 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\label{moves_8h_abd0635f086adec6cecc559bb47aa5097}} 
+\index{moves.\+h@{moves.\+h}!move\+\_\+from\+\_\+plate@{move\+\_\+from\+\_\+plate}}
+\index{move\+\_\+from\+\_\+plate@{move\+\_\+from\+\_\+plate}!moves.\+h@{moves.\+h}}
+\subsubsection{move\+\_\+from\+\_\+plate()}
+{\footnotesize\ttfamily void move\+\_\+from\+\_\+plate (\begin{DoxyParamCaption}\item[{struct \textbf{ plate} $\ast$}]{from\+\_\+plate,  }\item[{struct \textbf{ plate} $\ast$}]{to\+\_\+plate }\end{DoxyParamCaption})}
+
+
+
+choosing the legal movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+plate} & -\/ the source plate \\
+\hline
+{\em to\+\_\+plate} & -\/ the destination plate\\
+\hline
+\end{DoxyParams}
+This function pops the last element from both plates. If one element is equal with 0 (the plate is empty), I take the other remaining story and put on the empty plate. Otherwise, choose which element are greater, then push both elements on the other plate, in decreasing order. 
+
+Definition at line 27 of file moves.\+c.
+
+\mbox{\label{moves_8h_a00da4ed4ebe79b1c422c86ba72111610}} 
+\index{moves.\+h@{moves.\+h}!tower\+\_\+of\+\_\+\+Hanoi@{tower\+\_\+of\+\_\+\+Hanoi}}
+\index{tower\+\_\+of\+\_\+\+Hanoi@{tower\+\_\+of\+\_\+\+Hanoi}!moves.\+h@{moves.\+h}}
+\subsubsection{tower\+\_\+of\+\_\+\+Hanoi()}
+{\footnotesize\ttfamily void tower\+\_\+of\+\_\+\+Hanoi (\begin{DoxyParamCaption}\item[{struct \textbf{ plate} $\ast$}]{from\+\_\+plate,  }\item[{struct \textbf{ plate} $\ast$}]{aux\+\_\+plate,  }\item[{struct \textbf{ plate} $\ast$}]{to\+\_\+plate }\end{DoxyParamCaption})}
+
+
+
+implements the movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+plate} & -\/ the source plate \\
+\hline
+{\em aux\+\_\+plate} & -\/ the auxiliary plate \\
+\hline
+{\em to\+\_\+plate} & -\/ the destination plate\\
+\hline
+\end{DoxyParams}
+The total number of stories is equal with 2 to power the number of stories -\/ 1. Iterating from 1 to total no of moves, this function chooses the case. If number\+\_\+of\+\_\+story is even, the interchange to\+\_\+plate with aux\+\_\+plate. Since there are 3 circular cases, I use modulo 3. 
+
+Definition at line 69 of file moves.\+c.
+
