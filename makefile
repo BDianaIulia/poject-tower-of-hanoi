@@ -7,8 +7,8 @@ CFLAGS=-c -Wall
 all: hanoi
 # -c = compilation
 # -Wall = throws all warnings
-hanoi: main.o basic.o moves.o
-	$(CC) main.o basic.o moves.o -o hanoi
+hanoi: main.o basic.o moves.o input.o
+	$(CC) main.o basic.o moves.o input.o struct.o -o hanoi
 
 main.o: main.c
 	$(CC) $(CFLAGS) main.c
@@ -18,4 +18,8 @@ basic.o: basic.c
 
 moves.o: moves.c
 	$(CC) $(CFLAGS) moves.c
+
+input.o: input.c
+	$(CC) $(CFLAGS) input.c
+
 
